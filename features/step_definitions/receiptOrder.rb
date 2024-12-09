@@ -25,6 +25,59 @@ When(/^I type the quantities for the following products for buying$/) do |table|
 end
   
 
+# Given I am on the GMO OnLine main page
+Given("I am on the GMO OnLine main page") do
+    page.driver.browser.manage.window.maximize
+    visit('https://demo.borland.com/gmopost/')
+end
+
+# When I fill in the billing information form
+When('I fill in the billing information form') do |table|
+    billing_info = table.rows_hash
+
+    fill_in 'billName', with: billing_info['Name']
+    fill_in 'billAddress', with: billing_info['Address']
+    fill_in 'billCity', with: billing_info['City']
+    fill_in 'billState', with: billing_info['State']
+    fill_in 'billZipCode', with: billing_info['Zip']
+    fill_in 'billPhone', with: billing_info['Phone']
+    fill_in 'billEmail', with: billing_info['E-mail']
+    fill_in 'CardNumber', with: billing_info['Card Number']
+    fill_in 'CardDate', with: billing_info['Expiration']
+end
+
+# And I select "Visa" from the "Credit Card" dropdown
+And('I select {string} from the {string} dropdown') do |option, dropdown_label|
+    dropdown_xpath = "/html/body/form/table/tbody/tr[2]/td[1]/table/tbody/tr[10]/td[2]/select"
+    find(:xpath, dropdown_xpath).find(:option, option).select_option
+end
+
+And('I fill in the payment information form') do |table|
+    payment_info = table.rows_hash
+    fill_in 'CardNumber', with: payment_info['Card Number']
+    fill_in 'CardDate', with: payment_info['Expiration']
+end
+
+# And I check the "Same as Bill To" checkbox
+And('I check the {string} checkbox') do |checkbox_label|
+    checkbox_xpath = "/html/body/form/table/tbody/tr[2]/td[3]/table/tbody/tr[1]/td[2]/input"
+    find(:xpath, checkbox_xpath).set(true)
+end
+
+
+# And I fill in the shipping information form
+And('I fill in the shipping information form') do |table|
+    shipping_info = table.rows_hash
+
+    fill_in 'shipName', with: shipping_info['Name']
+    fill_in 'shipAddress', with: shipping_info['Address']
+    fill_in 'shipCity', with: shipping_info['City']
+    fill_in 'shipState', with: shipping_info['State']
+    fill_in 'shipZipCode', with: shipping_info['Zip']
+    fill_in 'shipPhone', with: shipping_info['Phone']
+end
+
+
 # And I should see the following products in the product description
 And(/^I should see the ordered products above in the Product Description column of the receipt$/) do 
     products_list = $global_products_list
