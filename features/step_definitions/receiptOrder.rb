@@ -1,3 +1,30 @@
+When(/^I type the quantities for the following products for buying$/) do |table|
+    products_list = table.hashes.map { |row| row['product'] }
+    quantities_list = table.hashes.map { |row| row['quantity'] }
+ 
+    products_list.each_with_index do |product, index|
+        quantity = quantities_list[index]
+  
+        case product
+            when "3 Person Dome Tent"
+                fill_in 'QTY_TENTS', :with => quantity
+            when "External Frame Backpack"
+                fill_in 'QTY_BACKPACKS', :with => quantity
+            when "Glacier Sun Glasses"
+                fill_in 'QTY_GLASSES', :with => quantity
+            when "Padded Socks"
+                fill_in 'QTY_SOCKS', :with => quantity
+            when "Hiking Boots"
+                fill_in 'QTY_BOOTS', :with => quantity
+            when "Back Country Shorts"
+                fill_in 'QTY_SHORTS', :with => quantity
+        end
+    end
+    $global_products_list = products_list
+    $global_quantities_list = quantities_list.map { |element| element.to_i }
+end
+  
+
 # And I should see the following products in the product description
 And(/^I should see the ordered products above in the Product Description column of the receipt$/) do 
     products_list = $global_products_list
