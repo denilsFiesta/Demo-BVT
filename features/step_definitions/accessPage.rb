@@ -1,12 +1,12 @@
 # Given I am on the Google homepage
 Given(/^I am on the Google homepage$/) do
   page.driver.browser.manage.window.maximize
-  visit('/')
+  visit('https://www.google.com/')
 end
 
 # When I paste the GMO OnLine URL in the address bar
 When(/^I paste the GMO OnLine URL in the address bar$/) do
-  visit('https://demo.borland.com/gmopost/')
+  visit('/')
 end
 
 # Then I should see the welcome page
