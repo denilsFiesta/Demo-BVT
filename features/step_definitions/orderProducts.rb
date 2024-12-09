@@ -1,6 +1,6 @@
 When(/^I type the quantities for the following products for buying$/) do |table|
     products_list = table.hashes.map { |row| row['product'] }
-    quantities_list = table.hashes.map { |row| row['quantity'].to_i }
+    quantities_list = table.hashes.map { |row| row['quantity'] }
  
     products_list.each_with_index do |product, index|
         quantity = quantities_list[index]
@@ -21,7 +21,7 @@ When(/^I type the quantities for the following products for buying$/) do |table|
         end
     end
     $global_products_list = products_list
-    $global_quantities_list = quantities_list
+    $global_quantities_list = quantities_list.map { |element| element.to_i }
 end
   
 
@@ -168,6 +168,25 @@ And(/^I should see the grand total that it should equal the product total plus t
     grand_total_xpath = "#{label_xpath}/ancestor::tr[1]/td[2]/strong[normalize-space(text())='#{grand_total}']"
     expect(page).to have_xpath(grand_total_xpath)
 end 
+
+Then(/^I should remain on the "(.*)" page$/) do |page_title|
+    case page_title
+    when 'OnLine Catalog'
+        expect(page).to have_xpath("/html/body/table/tbody/tr/td[1]/h1")
+    when 'About This Site'
+        expect(page).to have_xpath("/html/body/table/tbody/tr/td[1]/h1")
+    when 'All Browsers Are Not Created Equal'
+        expect(page).to have_xpath("/html/body/h1/font")
+    when 'Billing Information'
+        expect(page).to have_xpath("/html/body/table/tbody/tr/td[1]/h1")
+    when 'OnLine Store Receipt'
+        expect(page).to have_xpath("/html/body/h1")
+    when 'Place Order'
+        expect(page).to have_xpath("/html/body/table/tbody/tr/td[1]/h1")
+    else
+        raise "Página con título '#{page_title}' no reconocida"
+    end
+end
 
 #Hasta acua
 
