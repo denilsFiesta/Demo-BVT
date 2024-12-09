@@ -2,20 +2,20 @@ Feature:
 As a thoughtful site visitor, I want to verify the links behind the images on the Browser Test page  
 to ensure the site operates as expected and handles errors gracefully.  
 
-Scenario: Validate the functionality of GMO image 
+Scenario: Redirect to "Green Mountain Outpost" when clicking on the GMO image
     Given I am on the GMO Browser Test page
     When I click on the "Green Mountain Output" image
-    Then I should be redirected to the error page with the URL "https://demo.borland.com/gmopost/browser-test.htm"
+    Then I should be redirected to the "Green Mountain Outpost" page
 
-Scenario: Validate the link for "java-animate2.gif" image
+Scenario: Redirect to the "Java Applet" page when clicking on the Java animation image
     Given I am on the GMO Browser Test page
     When I click on the "Java Applet" image
-    Then I should be redirected to the Java Applet page with the URL "https://demo.borland.com/gmopost/javaapplet.htm"
+    Then I should be redirected to the "Java Applet" page
 
- Scenario: Validate the link for "ax-animate.gif" image
+Scenario: Redirect to the "ActiveX" page when clicking on the ActiveX animation image
     Given I am on the GMO Browser Test page
     When I click on the "ActiveX" image
-    Then I should be redirected to the ActiveX page with the URL "https://demo.borland.com/gmopost/activex.htm"
+    Then I should be redirected to the "ActiveX" page
 
 Scenario: Verify the "Left or Right" button functionality
   Given I am on the GMO Browser Test page

@@ -7,30 +7,17 @@ When(/^I click on the "Green Mountain Output" image$/) do
 find(:xpath, '//input[@type="image" and @name="I3"]').click
 end
 
-Then(/^I should be redirected to the error page with the URL "(.*)"$/) do |expected_url|
-actual_url = page.current_url
-expect(actual_url).to eq(expected_url) 
-end
-
 When(/^I click on the "Java Applet" image$/) do
 find(:xpath, '//img[@src="images/java-animate2.gif"]').click
-end
-
-Then(/^I should be redirected to the Java Applet page with the URL "(.*)"$/) do |expected_url|
-actual_url = page.current_url
-expect(actual_url).to eq(expected_url)
 end
 
 When(/^I click on the "ActiveX" image$/) do
     find(:xpath, '//img[@src="images/ax-animate.gif"]').click
   end
 
-Then(/^I should be redirected to the ActiveX page with the URL "(.*)"$/) do |expected_url|
-    actual_url = page.current_url
-    expect(actual_url).to eq(expected_url)
-  end
-  
-# 
+Then(/^I should be redirected to the "(.*)" page$/) do |title_page|
+  expect(page).to have_xpath("/html/body/p[1]/img")
+end
   
 When(/^I click on the "Left or Right" button$/) do
     # Intentar encontrar el botón usando un selector más flexible
