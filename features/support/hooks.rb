@@ -31,3 +31,7 @@ Before do
   ]
 end
 
+After do
+  $global_products_list = nil
+  $global_quantities_list = nil
+end
