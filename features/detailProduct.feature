@@ -16,5 +16,7 @@ Scenario Outline: View details of a selected product
   And I should see the product description for "<product_name>"
 
   Examples:
-    | product_name             | product_detail                                                                                                | unit_price | product_number |
-    | 3 Person Dome Tent       | Our best 3 person backpack dome tent                                                                            | $ 299.99   | 1000        |
+    | product_name             | product_detail                           | unit_price | product_number |
+    | 3 Person Dome Tent       | Our best 3 person backpack dome tent     | $ 299.99   | 1000           |
+
+    
