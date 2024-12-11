@@ -16,4 +16,7 @@ class PlaceOrderPage < BasePage
 
     def grand_total
     end
+
+    def proceed_with_order
+    end
 end
