@@ -4,18 +4,20 @@ Given(/^I am on the Google homepage$/) do
   visit('https://www.google.com/')
 end
 
-# When I paste the GMO OnLine URL in the address bar
 When(/^I paste the GMO OnLine URL in the address bar$/) do
   visit('/')
-  @home_page = HomePage.new
+  $current_page = HomePage.new
 end
 
-# Then I should see the welcome page
 Then(/^I should see the welcome page$/) do
-  @home_page.verify_page
+  $current_page.verify_page
 end
 
-# And I click the "<button_title>" button
+And(/^I click the Enter GMO OnLine button$/) do
+  $current_page = $current_page.enter_gmo_online
+end
+
+
 And(/^I click the "(.*)" button$/) do |button_title|
   click_button(button_title)
 end

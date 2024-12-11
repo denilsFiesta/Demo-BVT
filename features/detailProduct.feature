@@ -7,7 +7,7 @@ Feature: Testing GMO Post Product Navigation
 Scenario Outline: View details of a selected product
   Given I am on the Google homepage
   When I paste the GMO OnLine URL in the address bar
-  And I click the "Enter GMO OnLine" button
+  And I click the Enter GMO OnLine button
   And I click the "<product_name>" product
   Then I should see the product name "<product_name>"
   And I should see the product detail "<product_detail>" for "<product_name>"
