@@ -21,7 +21,7 @@ Around do |scenario, block|
 end
 
 Before do
-  @products = [
+  $products_db = [
     { name: "3 Person Dome Tent", unit_price: 299.99 },
     { name: "External Frame Backpack", unit_price: 179.95 },
     { name: "Glacier Sun Glasses", unit_price: 67.99 },

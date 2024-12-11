@@ -17,7 +17,6 @@ And(/^I click the Enter GMO OnLine button$/) do
   $current_page = $current_page.enter_gmo_online
 end
 
-
 And(/^I click the "(.*)" button$/) do |button_title|
   click_button(button_title)
 end
