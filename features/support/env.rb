@@ -31,4 +31,6 @@ CapybaraDriverRegistrar.register_selenium_driver(:chrome)
 Capybara.run_server = false
 #World(Capybara)
 
+Dir["#{File.dirname(__FILE__)}/page_object/*.rb"].each { |file| require file }
+
 Capybara::Screenshot.autosave_on_failure = false

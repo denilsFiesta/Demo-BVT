@@ -7,11 +7,12 @@ end
 # When I paste the GMO OnLine URL in the address bar
 When(/^I paste the GMO OnLine URL in the address bar$/) do
   visit('/')
+  @home_page = HomePage.new
 end
 
 # Then I should see the welcome page
 Then(/^I should see the welcome page$/) do
-  expect(page).to have_xpath("/html/body/h1/font")
+  @home_page.verify_page
 end
 
 # And I click the "<button_title>" button
