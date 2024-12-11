@@ -2,9 +2,6 @@ class DetailItemsPage < BasePage
     def verify_page
     end
 
-    def product_details
-    end
-
     def verify_product_name(product_name)
         xpath = "/html/body/h2[*]/a[normalize-space(text())='#{product_name}']"
         expect(page).to have_xpath(xpath)

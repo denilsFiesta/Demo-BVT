@@ -8,6 +8,4 @@ class HomePage < BasePage
         OnlineCatalogPage.new
     end
 
-    def about_gmo_site
-    end
 end

@@ -12,10 +12,6 @@ class OnlineCatalogPage < BasePage
         PlaceOrderPage.new
     end
 
-    def reset_form
-    end
-
-
     def set_quantities(products_list, quantities_list)
         products_list.each_with_index do |product, index|
             quantity = quantities_list[index]

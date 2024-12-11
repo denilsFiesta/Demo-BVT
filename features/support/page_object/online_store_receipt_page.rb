@@ -3,12 +3,6 @@ class OnlineStoreReceiptPage < BasePage
         expect(page).to have_xpath("/html/body/h1")
     end
 
-    def bill_to_info
-    end
-
-    def ship_to_info
-    end
-
     def verify_products
         products_list = $global_products_list
         products_list.each do |product_description|
@@ -121,9 +115,6 @@ class OnlineStoreReceiptPage < BasePage
         expect(page).to have_xpath(sales_tax_xpath)
     end
 
-    def shipping_and_handling
-    end
-
     def verify_grand_total
         products_list = $global_products_list
         quantities_list = $global_quantities_list
@@ -152,6 +143,4 @@ class OnlineStoreReceiptPage < BasePage
     expect(page).to have_xpath(grand_total_xpath)
     end
 
-    def return_to_home_page
-    end
 end
